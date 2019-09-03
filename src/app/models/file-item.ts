@@ -7,7 +7,7 @@ export class FileItem {
   public progreso: number;
 
 
-  contructor (archivo: File){
+  constructor(archivo: File) {
     this.archivo = archivo;
     this.nombreArchivo = archivo.name;
 
