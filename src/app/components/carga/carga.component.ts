@@ -8,7 +8,9 @@ import { CargaImagenesService } from '../../services/carga-imagenes.service';
   styles: []
 })
 export class CargaComponent implements OnInit {
-archivos: FileItem[] = [];
+
+  estaSobreElemento: boolean = false;
+  archivos: FileItem[] = [];
   constructor( public cargaImagenes: CargaImagenesService) { }
 
   ngOnInit() {
@@ -17,4 +19,7 @@ archivos: FileItem[] = [];
     this.cargaImagenes.cargarImagenesFirebase(this.archivos);
   }
 
+  pruebaSobreElemento( event ){
+      console.log(event);
+  }
 }
