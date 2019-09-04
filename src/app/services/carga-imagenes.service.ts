@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import { FileItem } from '../models/file-item';
 import { async } from '@angular/core/testing';
 @Injectable({
@@ -35,7 +35,7 @@ export class CargaImagenesService {
         if (item.progreso >= 100){
           continue;
         }
-        const uploadTask: firebase.storage.UploadTask = 
+        const uploadTask: firebase.storage.UploadTask =
         storageRef.child(`${ this.CARPETA_IMAGENES}/${ item.nombreArchivo }`).put(item.archivo);
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
           (snaphot: firebase.storage.UploadTaskSnapshot) => {
